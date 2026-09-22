@@ -1,0 +1,91 @@
+protocol,phase,agent,metric,numerator,denominator,value,unit,source_artifact
+sequential_addition,first_cause,NoOp,ever_exact,0,18,0.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,NoOp,teh_at_10,0,18,0.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,NoOp,ended_correct,0,18,0.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,NoOp,episodes_with_over_intervention,0,18,0.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,NoOp,post_hit_regressions,,,0,count,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,NoOp,ever_exact,0,18,0.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,NoOp,teh_at_10,0,18,0.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,NoOp,ended_correct,0,18,0.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,NoOp,episodes_with_over_intervention,0,18,0.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,NoOp,post_hit_regressions,,,0,count,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,Composite Rule,ever_exact,18,18,100.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,Composite Rule,teh_at_10,18,18,100.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,Composite Rule,ended_correct,18,18,100.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,Composite Rule,episodes_with_over_intervention,0,18,0.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,Composite Rule,post_hit_regressions,,,0,count,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,Composite Rule,ever_exact,18,18,100.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,Composite Rule,teh_at_10,18,18,100.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,Composite Rule,ended_correct,18,18,100.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,Composite Rule,episodes_with_over_intervention,0,18,0.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,Composite Rule,post_hit_regressions,,,0,count,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,Temporal Oracle,ever_exact,18,18,100.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,Temporal Oracle,teh_at_10,18,18,100.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,Temporal Oracle,ended_correct,18,18,100.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,Temporal Oracle,episodes_with_over_intervention,0,18,0.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,Temporal Oracle,post_hit_regressions,,,0,count,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,Temporal Oracle,ever_exact,18,18,100.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,Temporal Oracle,teh_at_10,18,18,100.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,Temporal Oracle,ended_correct,18,18,100.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,Temporal Oracle,episodes_with_over_intervention,0,18,0.0,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,Temporal Oracle,post_hit_regressions,,,0,count,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,Qwen low,ever_exact,13,18,72.2,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,Qwen low,teh_at_10,13,18,72.2,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,Qwen low,ended_correct,8,18,44.4,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,Qwen low,episodes_with_over_intervention,6,18,33.3,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,first_cause,Qwen low,post_hit_regressions,,,5,count,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,Qwen low,ever_exact,11,18,61.1,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,Qwen low,teh_at_10,5,18,27.8,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,Qwen low,ended_correct,6,18,33.3,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,Qwen low,episodes_with_over_intervention,16,18,88.9,percent,archive:sequential_injection/metrics_summary.csv
+sequential_addition,joint_causes,Qwen low,post_hit_regressions,,,6,count,archive:sequential_injection/metrics_summary.csv
+three_cause_lifecycle,all_intervals,Composite Rule,ever_exact,60,108,55.6,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+three_cause_lifecycle,all_intervals,Composite Rule,ended_correct,60,108,55.6,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+three_cause_lifecycle,all_intervals,Composite Rule,roundwise_exact,,,51.6,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+three_cause_lifecycle,all_intervals,Composite Rule,over_intervention,,,34.0,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+three_cause_lifecycle,all_intervals,Composite Rule,post_hit_regressions,,,0,count,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+three_cause_lifecycle,all_intervals,Qwen low,ever_exact,51,108,47.2,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+three_cause_lifecycle,all_intervals,Qwen low,ended_correct,38,108,35.2,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+three_cause_lifecycle,all_intervals,Qwen low,roundwise_exact,,,30.8,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+three_cause_lifecycle,all_intervals,Qwen low,over_intervention,,,58.0,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+three_cause_lifecycle,all_intervals,Qwen low,post_hit_regressions,,,14,count,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+three_cause_lifecycle,activation,Composite Rule,ever_exact,44,54,81.5,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+three_cause_lifecycle,activation,Composite Rule,ended_correct,44,54,81.5,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+three_cause_lifecycle,partial_removal,Composite Rule,ever_exact,12,36,33.3,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+three_cause_lifecycle,partial_removal,Composite Rule,ended_correct,12,36,33.3,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+three_cause_lifecycle,full_clear,Composite Rule,ever_exact,4,18,22.2,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+three_cause_lifecycle,full_clear,Composite Rule,ended_correct,4,18,22.2,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+three_cause_lifecycle,activation,Qwen low,ever_exact,25,54,46.3,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+three_cause_lifecycle,activation,Qwen low,ended_correct,14,54,25.9,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+three_cause_lifecycle,partial_removal,Qwen low,ever_exact,10,36,27.8,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+three_cause_lifecycle,partial_removal,Qwen low,ended_correct,8,36,22.2,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+three_cause_lifecycle,full_clear,Qwen low,ever_exact,16,18,88.9,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+three_cause_lifecycle,full_clear,Qwen low,ended_correct,16,18,88.9,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+recurrence,all_intervals,Composite Rule,ever_exact,27,36,75.0,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+recurrence,all_intervals,Composite Rule,ended_correct,27,36,75.0,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+recurrence,all_intervals,Composite Rule,roundwise_exact,,,71.9,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+recurrence,all_intervals,Composite Rule,over_intervention,,,20.6,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+recurrence,all_intervals,Composite Rule,post_hit_regressions,,,0,count,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+recurrence,all_intervals,Qwen low,ever_exact,30,36,83.3,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+recurrence,all_intervals,Qwen low,ended_correct,27,36,75.0,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+recurrence,all_intervals,Qwen low,roundwise_exact,,,65.0,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+recurrence,all_intervals,Qwen low,over_intervention,,,30.3,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+recurrence,all_intervals,Qwen low,post_hit_regressions,,,3,count,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv
+recurrence,activation,Composite Rule,ever_exact,16,18,88.9,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+recurrence,activation,Composite Rule,ended_correct,16,18,88.9,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+recurrence,full_clear,Composite Rule,ever_exact,11,18,61.1,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+recurrence,full_clear,Composite Rule,ended_correct,11,18,61.1,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+recurrence,activation,Qwen low,ever_exact,12,18,66.7,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+recurrence,activation,Qwen low,ended_correct,9,18,50.0,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+recurrence,full_clear,Qwen low,ever_exact,18,18,100.0,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+recurrence,full_clear,Qwen low,ended_correct,18,18,100.0,percent,archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv
+rotation,all_intervals,Qwen low,ever_exact,16,18,88.9,percent,archive:phase6_rotation/agent_decision_summary.csv
+rotation,all_intervals,Qwen low,ended_correct,14,18,77.8,percent,archive:phase6_rotation/agent_decision_summary.csv
+rotation,all_intervals,Qwen low,roundwise_exact,,,73.3,percent,archive:phase6_rotation/agent_decision_summary.csv
+rotation,all_intervals,Qwen low,over_intervention,,,16.1,percent,archive:phase6_rotation/agent_decision_summary.csv
+rotation,all_intervals,Qwen low,post_hit_regressions,,,2,count,archive:phase6_rotation/agent_decision_summary.csv
+rotation,all_intervals,Composite Rule,ever_exact,10,18,55.6,percent,archive:phase6_rotation/agent_decision_summary.csv
+rotation,all_intervals,Composite Rule,ended_correct,10,18,55.6,percent,archive:phase6_rotation/agent_decision_summary.csv
+rotation,all_intervals,Composite Rule,roundwise_exact,,,53.3,percent,archive:phase6_rotation/agent_decision_summary.csv
+rotation,all_intervals,Composite Rule,over_intervention,,,34.4,percent,archive:phase6_rotation/agent_decision_summary.csv
+rotation,all_intervals,Composite Rule,post_hit_regressions,,,0,count,archive:phase6_rotation/agent_decision_summary.csv

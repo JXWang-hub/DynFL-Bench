@@ -1,0 +1,9 @@
+section,scenario,controller,measure,numerator,denominator,value,unit,source_artifact
+decision_audit,dropout_and_virtual_drift,Qwen low,pre_event_no_op,240,240,100.0,percent,"archive:supplemental/speech_commands/{dropout_random,virtual_drift}/decision_trace.csv"
+decision_audit,dropout_and_virtual_drift,Qwen low,teh_at_10,6,6,100.0,percent,"archive:supplemental/speech_commands/{dropout_random,virtual_drift}/decision_trace.csv"
+decision_audit,dropout_and_virtual_drift,Qwen low,ended_correct,3,6,50.0,percent,"archive:supplemental/speech_commands/{dropout_random,virtual_drift}/decision_trace.csv"
+decision_audit,dropout_and_virtual_drift,Qwen low,clean_window_at_10,0,6,0.0,percent,"archive:supplemental/speech_commands/{dropout_random,virtual_drift}/decision_trace.csv"
+intervention_value,virtual_drift,Composite Rule vs NoOp,post_drift_mean_accuracy_gain,,,4.35,percentage_points,archive:supplemental/speech_commands/virtual_drift/metrics_all_multiseed.csv
+intervention_value,virtual_drift,Composite Rule vs NoOp,worst_class_accuracy_gain,,,6.20,percentage_points,archive:supplemental/speech_commands/virtual_drift/metrics_all_multiseed.csv
+intervention_value,virtual_drift,Composite Rule vs NoOp,recovery_rounds_aligned,,,3.67,rounds,archive:supplemental/speech_commands/virtual_drift/metrics_all_multiseed.csv
+intervention_value,virtual_drift,Composite Rule vs NoOp,recovery_rounds_noop,,,22.00,rounds,archive:supplemental/speech_commands/virtual_drift/metrics_all_multiseed.csv

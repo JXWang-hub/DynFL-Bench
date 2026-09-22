@@ -1,0 +1,132 @@
+{
+  "version": "b1-cifar10-v1-draft",
+  "dataset": "cifar10",
+  "seeds": [0, 44, 56],
+  "goal": "Distinguish good runtime decisions from bad decisions; the target action need not win every accuracy comparison.",
+  "agent_visible_telemetry": [
+    "round",
+    "total_rounds",
+    "global_acc",
+    "acc_delta_3",
+    "client_loss_mean",
+    "client_loss_var",
+    "update_norm_mean",
+    "update_norm_var",
+    "update_norm_ratio",
+    "input_shift",
+    "label_shift",
+    "current_lr",
+    "participation_rate",
+    "using_robust"
+  ],
+  "hidden_ground_truth": [
+    "scenario",
+    "drift_type",
+    "drift_mode",
+    "drift_round",
+    "drift_schedule",
+    "drift_clients",
+    "dropped_clients",
+    "concept_of",
+    "drift_maps",
+    "byzantine_client_ids"
+  ],
+  "cases": [
+    {
+      "id": "drift_real",
+      "correct_action": "drift_adapt",
+      "target_agent": "adapt_lr",
+      "known_wrong_actions": ["robust", "dropout_handle", "fedprox", "reweight"],
+      "primary_metrics": ["post_drift_mean_acc", "misdiagnosis_penalty", "switch_regret"],
+      "guardrails": ["target penalty is 0", "wrong-action penalty is non-zero"],
+      "trigger_reference": "drift_round",
+      "evidence": "FedDAA-style real-drift adaptation",
+      "limitation": "Current implementation is a compact source-aligned adaptation path, not the full upstream runner."
+    },
+    {
+      "id": "drift_virtual",
+      "correct_action": "moment_align_adapt",
+      "target_agent": "diagnose",
+      "known_wrong_actions": ["drift_adapt", "robust", "dropout_handle"],
+      "primary_metrics": ["post_drift_mean_acc", "post_event_worst_acc", "misdiagnosis_penalty"],
+      "guardrails": ["no pre-event intervention", "active wrong drift action remains below the correct-action floor"],
+      "trigger_reference": "drift_round",
+      "evidence": "Deep CORAL moment alignment",
+      "limitation": "B1 freezes the current global translation shift and does not claim broad domain-shift coverage."
+    },
+    {
+      "id": "drift_label",
+      "correct_action": "label_prior_adapt",
+      "target_agent": "label_prior_adapt",
+      "known_wrong_actions": ["reweight", "drift_adapt", "robust"],
+      "primary_metrics": ["post_event_worst_acc", "post_drift_mean_acc", "misdiagnosis_penalty"],
+      "guardrails": ["overall post-event accuracy degrades by no more than 0.01 versus noop", "all classes remain present"],
+      "trigger_reference": "drift_round",
+      "evidence": "Logit Adjustment and Balanced Meta-Softmax",
+      "limitation": "FedLC is retained as a client label-skew ablation, not the answer for global same-direction prior drift."
+    },
+    {
+      "id": "fault",
+      "correct_action": "robust",
+      "target_agent": "reject_robust",
+      "known_wrong_actions": ["drift_adapt", "dropout_handle", "fedprox"],
+      "primary_metrics": ["post_drift_mean_acc", "misdiagnosis_penalty", "switch_regret"],
+      "guardrails": ["update norm max/median relative trigger fires", "non-fault shift signals suppress the robust trigger"],
+      "trigger_reference": "drift_round",
+      "evidence": "Distance-based Byzantine trimmed aggregation",
+      "limitation": "Worst-class accuracy can remain below noop even when aggregate utility improves."
+    },
+    {
+      "id": "dropout",
+      "correct_action": "dropout_handle",
+      "target_agent": "handle_dropout",
+      "known_wrong_actions": ["drift_adapt", "robust", "fedprox"],
+      "primary_metrics": ["post_drift_mean_acc", "recovery_rounds", "misdiagnosis_penalty"],
+      "guardrails": ["target penalty is 0", "participation loss is visible but scenario identity is hidden"],
+      "trigger_reference": "drift_round",
+      "evidence": "MIFA and FedVARP",
+      "limitation": "friend_substitute remains a proxy ablation and is not a formal B1 answer."
+    },
+    {
+      "id": "hetero",
+      "correct_action": "select_clients",
+      "target_agent": "select_clients",
+      "known_wrong_actions": ["fedprox", "drift_adapt", "dropout_handle"],
+      "primary_metrics": ["post_drift_mean_acc", "misdiagnosis_penalty"],
+      "guardrails": ["selector remains active after diagnosis", "partial participation is required"],
+      "trigger_reference": "round 0 persistent condition",
+      "evidence": "Oort guided participant selection",
+      "limitation": "FedProx remains supported research but is wrong at this B1 partial-participation workpoint."
+    },
+    {
+      "id": "staggered",
+      "correct_action": "spawn_concept_auto",
+      "target_agent": "spawn_concept_auto",
+      "known_wrong_actions": ["drift_adapt", "robust", "dropout_handle"],
+      "primary_metrics": ["post_drift_mean_acc", "final_acc", "feddrift_cluster_purity", "feddrift_first_trigger_round", "feddrift_num_concepts"],
+      "guardrails": ["post-event gain versus noop is at least 0.05", "final gain versus noop is at least 0.08", "cluster purity is at least 0.70"],
+      "trigger_reference": "first concept wave",
+      "evidence": "FedDrift local detection and dynamic multi-model routing",
+      "limitation": "spawn_concept uses hidden truth and is a performance bound only; it is excluded from bad-action gap comparisons."
+    }
+  ],
+  "robustness_cases": [
+    {"id": "drift_gradual_real", "correct_action": "drift_adapt", "rates": null},
+    {"id": "drift_gradual_virtual", "correct_action": "moment_align_adapt", "rates": null},
+    {"id": "drift_gradual_label", "correct_action": "label_prior_adapt", "rates": null},
+    {"id": "dropout_random", "correct_action": "dropout_handle", "rates": [0.3, 0.5, 0.7]}
+  ],
+  "hard_cases": [
+    {
+      "id": "drift_recurrent",
+      "required_action": "reuse_concept_model",
+      "status": "unsupported",
+      "reason": "The action is not implemented; drift_adapt must not be relabeled as the correct recurrent response."
+    }
+  ],
+  "leakage_boundary": {
+    "agent_entrypoint": "LLMAgent receives only telemetry.render_text(obs)",
+    "allowed": "Symptom values and public action descriptions",
+    "forbidden": "Scenario names, configuration objects, output filenames, event schedules, affected client IDs and concept truth"
+  }
+}

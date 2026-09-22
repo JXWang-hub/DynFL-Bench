@@ -1,0 +1,63 @@
+{
+  "models": [
+    {
+      "name": "qwen2p5_7b_local",
+      "kind": "open_weight",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "base_url": "http://127.0.0.1:8000/v1",
+      "api_key_env": "OPEN_MODEL_API_KEY",
+      "requires_api_key": false,
+      "input_cost_per_million": 0.0,
+      "output_cost_per_million": 0.0,
+      "cost_note": "Local inference reports tokens and latency; hardware cost is external."
+    },
+    {
+      "name": "qwen3p8_max",
+      "kind": "closed",
+      "model": "qwen3.8-max",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_env": "DASHSCOPE_API_KEY",
+      "requires_api_key": true,
+      "temperature": 0.0,
+      "input_cost_per_million": 0.0,
+      "output_cost_per_million": 0.0,
+      "cost_note": "Replace zeros with the provider's current per-million-token prices before the formal run."
+    },
+    {
+      "name": "qwen3p8_flash",
+      "kind": "closed",
+      "model": "qwen3.8-flash",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_env": "DASHSCOPE_API_KEY",
+      "requires_api_key": true,
+      "temperature": 0.0,
+      "input_cost_per_million": 0.0,
+      "output_cost_per_million": 0.0,
+      "cost_note": "Replace zeros with the provider's current per-million-token prices before the formal run."
+    },
+    {
+      "name": "kimi_k3",
+      "kind": "closed",
+      "model": "kimi-k3",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_env": "DASHSCOPE_API_KEY",
+      "requires_api_key": true,
+      "temperature": 1.0,
+      "input_cost_per_million": 0.0,
+      "output_cost_per_million": 0.0,
+      "cost_note": "Replace zeros with the provider's current per-million-token prices before the formal run."
+    },
+    {
+      "name": "deepseek_v4_pro_0813",
+      "kind": "closed",
+      "model": "deepseek-v4-pro-0813",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_env": "DASHSCOPE_API_KEY",
+      "requires_api_key": true,
+      "temperature": 0.0,
+      "input_cost_per_million": 0.0,
+      "output_cost_per_million": 0.0,
+      "cost_note": "Replace zeros with the provider's current per-million-token prices before the formal run."
+    }
+  ]
+}

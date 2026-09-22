@@ -1,0 +1,567 @@
+{
+  "schema_version": 2,
+  "benchmark_version": "b3-composite-v2",
+  "status": "frozen",
+  "version_started_on": "2026-07-22",
+  "frozen_on": "2026-09-09",
+  "result_root": "results/b3_composite_v2",
+  "baseline": {
+    "freeze_path": "planning/B1B2_baseline_freeze.json",
+    "freeze_id": "b1b2-c06f9ad-benchmark-cifar10-v2",
+    "freeze_sha256": "c67f78251127f8ad3d7779b440589fab2989e8a684f5084cc91897c07691af8b",
+    "code_sha": "c06f9ad3b63db77d481b4050a7acf14332a494c2",
+    "workpoints_path": "protocol.scenario_workpoints"
+  },
+  "protocol": {
+    "dataset": "cifar10",
+    "partition_modes": [
+      "iid",
+      "noniid"
+    ],
+    "default_partition_mode": "noniid",
+    "phase6": {
+      "stress_seed": 20260727,
+      "segment_rounds": 10,
+      "causes": [
+        "real_drift",
+        "fault",
+        "dropout"
+      ],
+      "stable_between_events": true,
+      "agent_policy": {
+        "decision_cadence": 1,
+        "timeout_seconds": 120.0,
+        "retry_delays_seconds": [
+          2,
+          5,
+          10,
+          20,
+          40
+        ],
+        "max_calls": 70
+      }
+    },
+    "evaluation_seeds": [
+      0,
+      44,
+      56
+    ],
+    "calibration_seeds": [
+      101,
+      202,
+      303
+    ],
+    "rounds": 80,
+    "event_round": 40,
+    "causes_per_episode": [
+      1,
+      2
+    ],
+    "response_window_length": 10,
+    "composition_seed": 20260710,
+    "composition_seed_scope": "client_sets_masks_and_event_details_only",
+    "case_selection": "all_allowed_cases",
+    "formal_case_ids": [
+      "real_dropout",
+      "real_fault",
+      "virtual_fault",
+      "virtual_dropout",
+      "label_dropout",
+      "hetero_abrupt_dropout",
+      "fault_dropout",
+      "real_hetero",
+      "virtual_hetero",
+      "staggered"
+    ],
+    "first_smoke_case_id": "real_dropout"
+  },
+  "execution_order": [
+    "participant_selection",
+    "missing_client_handling",
+    "data_adaptation",
+    "aggregation_defense",
+    "concept_routing"
+  ],
+  "actions": {
+    "no_op": {
+      "family": "control",
+      "evidence": "baseline_only",
+      "lifecycle": "control",
+      "execution_stage": "control",
+      "reversible": true,
+      "agent_visible": true
+    },
+    "drift_adapt": {
+      "family": "data_adaptation",
+      "evidence": "source_aligned",
+      "lifecycle": "reversible_state",
+      "execution_stage": "data_adaptation",
+      "reversible": true,
+      "agent_visible": true
+    },
+    "moment_align_adapt": {
+      "family": "data_adaptation",
+      "evidence": "source_aligned",
+      "lifecycle": "reversible_state",
+      "execution_stage": "data_adaptation",
+      "reversible": true,
+      "agent_visible": true
+    },
+    "label_prior_adapt": {
+      "family": "data_adaptation",
+      "evidence": "source_aligned",
+      "lifecycle": "reversible_state",
+      "execution_stage": "data_adaptation",
+      "reversible": true,
+      "agent_visible": true
+    },
+    "robust": {
+      "family": "aggregation_defense",
+      "evidence": "source_aligned",
+      "lifecycle": "reversible_state",
+      "execution_stage": "aggregation_defense",
+      "reversible": true,
+      "agent_visible": true
+    },
+    "dropout_handle": {
+      "family": "missing_client_handling",
+      "evidence": "algorithm_supported",
+      "lifecycle": "reversible_state",
+      "execution_stage": "missing_client_handling",
+      "reversible": true,
+      "agent_visible": true
+    },
+    "friend_substitute": {
+      "family": "missing_client_handling",
+      "evidence": "source_aligned",
+      "lifecycle": "reversible_state",
+      "execution_stage": "missing_client_handling",
+      "reversible": true,
+      "agent_visible": true
+    },
+    "select_clients": {
+      "family": "participant_selection",
+      "evidence": "source_aligned",
+      "lifecycle": "per_round",
+      "execution_stage": "participant_selection",
+      "reversible": true,
+      "agent_visible": true
+    },
+    "spawn_concept_auto": {
+      "family": "concept_routing",
+      "evidence": "source_aligned",
+      "lifecycle": "one_shot_irreversible",
+      "execution_stage": "concept_routing",
+      "reversible": false,
+      "agent_visible": true
+    }
+  },
+  "legacy_or_oracle_only_actions": {
+    "lr_reset": "legacy_wrong_action",
+    "retain_history_adapt": "legacy_not_in_b3_feasible_sets",
+    "reweight": "legacy_wrong_action",
+    "fedprox": "legacy_wrong_action",
+    "spawn_concept": "oracle_only_uses_ground_truth"
+  },
+  "causes": {
+    "stable": {
+      "status": "supported",
+      "feasible_actions": [
+        "no_op"
+      ],
+      "canonical_action": "no_op",
+      "workpoint": null
+    },
+    "real_drift": {
+      "status": "supported",
+      "feasible_actions": [
+        "drift_adapt"
+      ],
+      "canonical_action": "drift_adapt",
+      "workpoint": "real_drift"
+    },
+    "virtual_drift": {
+      "status": "supported",
+      "feasible_actions": [
+        "moment_align_adapt"
+      ],
+      "canonical_action": "moment_align_adapt",
+      "workpoint": "virtual_drift"
+    },
+    "label_prior_drift": {
+      "status": "supported",
+      "feasible_actions": [
+        "label_prior_adapt"
+      ],
+      "canonical_action": "label_prior_adapt",
+      "workpoint": "label_prior_drift"
+    },
+    "fault": {
+      "status": "supported",
+      "feasible_actions": [
+        "robust"
+      ],
+      "canonical_action": "robust",
+      "workpoint": "fault"
+    },
+    "dropout": {
+      "status": "supported",
+      "feasible_actions": [
+        "dropout_handle",
+        "friend_substitute"
+      ],
+      "canonical_action": "dropout_handle",
+      "workpoint": "dropout"
+    },
+    "partial_participation_hetero": {
+      "status": "supported",
+      "feasible_actions": [
+        "select_clients"
+      ],
+      "canonical_action": "select_clients",
+      "workpoint": "partial_participation_hetero"
+    },
+    "staggered_concepts": {
+      "status": "supported",
+      "feasible_actions": [
+        "spawn_concept_auto"
+      ],
+      "canonical_action": "spawn_concept_auto",
+      "workpoint": "staggered_concepts"
+    },
+    "recurrent_drift": {
+      "status": "hard_case_until_reuse_concept_model_exists",
+      "feasible_actions": [],
+      "canonical_action": null,
+      "workpoint": null
+    }
+  },
+  "formal_cases": [
+    {
+      "case_id": "real_dropout",
+      "causes": [
+        "real_drift",
+        "dropout"
+      ],
+      "canonical_bundle": [
+        "drift_adapt",
+        "dropout_handle"
+      ],
+      "feasible_bundles": [
+        [
+          "drift_adapt",
+          "dropout_handle"
+        ],
+        [
+          "drift_adapt",
+          "friend_substitute"
+        ]
+      ]
+    },
+    {
+      "case_id": "real_fault",
+      "causes": [
+        "real_drift",
+        "fault"
+      ],
+      "canonical_bundle": [
+        "drift_adapt",
+        "robust"
+      ],
+      "feasible_bundles": [
+        [
+          "drift_adapt",
+          "robust"
+        ]
+      ]
+    },
+    {
+      "case_id": "virtual_fault",
+      "causes": [
+        "virtual_drift",
+        "fault"
+      ],
+      "canonical_bundle": [
+        "moment_align_adapt",
+        "robust"
+      ],
+      "feasible_bundles": [
+        [
+          "moment_align_adapt",
+          "robust"
+        ]
+      ]
+    },
+    {
+      "case_id": "virtual_dropout",
+      "causes": [
+        "virtual_drift",
+        "dropout"
+      ],
+      "canonical_bundle": [
+        "moment_align_adapt",
+        "dropout_handle"
+      ],
+      "feasible_bundles": [
+        [
+          "moment_align_adapt",
+          "dropout_handle"
+        ],
+        [
+          "moment_align_adapt",
+          "friend_substitute"
+        ]
+      ]
+    },
+    {
+      "case_id": "label_dropout",
+      "causes": [
+        "label_prior_drift",
+        "dropout"
+      ],
+      "canonical_bundle": [
+        "label_prior_adapt",
+        "dropout_handle"
+      ],
+      "feasible_bundles": [
+        [
+          "label_prior_adapt",
+          "dropout_handle"
+        ],
+        [
+          "label_prior_adapt",
+          "friend_substitute"
+        ]
+      ]
+    },
+    {
+      "case_id": "hetero_abrupt_dropout",
+      "causes": [
+        "partial_participation_hetero",
+        "dropout"
+      ],
+      "canonical_bundle": [
+        "select_clients",
+        "dropout_handle"
+      ],
+      "feasible_bundles": [
+        [
+          "select_clients",
+          "dropout_handle"
+        ],
+        [
+          "select_clients",
+          "friend_substitute"
+        ]
+      ]
+    },
+    {
+      "case_id": "fault_dropout",
+      "causes": [
+        "fault",
+        "dropout"
+      ],
+      "canonical_bundle": [
+        "robust",
+        "dropout_handle"
+      ],
+      "feasible_bundles": [
+        [
+          "robust",
+          "dropout_handle"
+        ],
+        [
+          "robust",
+          "friend_substitute"
+        ]
+      ]
+    },
+    {
+      "case_id": "real_hetero",
+      "causes": [
+        "real_drift",
+        "partial_participation_hetero"
+      ],
+      "canonical_bundle": [
+        "drift_adapt",
+        "select_clients"
+      ],
+      "feasible_bundles": [
+        [
+          "drift_adapt",
+          "select_clients"
+        ]
+      ]
+    },
+    {
+      "case_id": "virtual_hetero",
+      "causes": [
+        "virtual_drift",
+        "partial_participation_hetero"
+      ],
+      "canonical_bundle": [
+        "moment_align_adapt",
+        "select_clients"
+      ],
+      "feasible_bundles": [
+        [
+          "moment_align_adapt",
+          "select_clients"
+        ]
+      ]
+    },
+    {
+      "case_id": "staggered",
+      "causes": [
+        "staggered_concepts"
+      ],
+      "canonical_bundle": [
+        "spawn_concept_auto"
+      ],
+      "feasible_bundles": [
+        [
+          "spawn_concept_auto"
+        ]
+      ]
+    }
+  ],
+  "forbidden_combinations": [
+    {
+      "causes": [
+        "real_drift",
+        "label_prior_drift"
+      ],
+      "reason": "both_change_label_semantics_and_are_not_uniquely_decomposable"
+    },
+    {
+      "causes": [
+        "real_drift",
+        "staggered_concepts"
+      ],
+      "reason": "concept_definitions_overlap"
+    },
+    {
+      "causes": [
+        "label_prior_drift",
+        "staggered_concepts"
+      ],
+      "reason": "concept_definitions_overlap"
+    },
+    {
+      "causes": [
+        "recurrent_drift",
+        "*"
+      ],
+      "reason": "reuse_concept_model_is_not_implemented"
+    }
+  ],
+  "combination_constraints": [
+    {
+      "when": [
+        "fault",
+        "dropout"
+      ],
+      "rule": "compromised_clients_and_dropped_clients_must_not_fully_overlap"
+    }
+  ],
+  "public_observation_schema": {
+    "round": "integer",
+    "total_rounds": "integer",
+    "global_acc": "number",
+    "acc_delta_3": "number",
+    "client_loss_mean": "number",
+    "client_loss_var": "number",
+    "update_norm_mean": "number",
+    "update_norm_var": "number",
+    "update_norm_max": "number",
+    "update_norm_median": "number",
+    "update_norm_ratio": "number",
+    "input_shift": "number",
+    "label_shift": "number",
+    "current_lr": "number",
+    "participation_rate": "number",
+    "planned_participation_rate": "number",
+    "availability_rate": "number",
+    "participation_gap": "number",
+    "active_actions": "array",
+    "empty_round": "boolean",
+    "aggregation_norm_mean": "number",
+    "aggregation_norm_var": "number",
+    "aggregation_norm_max": "number",
+    "aggregation_norm_median": "number",
+    "aggregation_norm_ratio": "number",
+    "aggregation_sources": "array",
+    "using_robust": "boolean",
+    "decision_interval": "integer",
+    "client_change_monitor_ready": "boolean",
+    "client_model_score_drop_p50": "number",
+    "client_model_score_drop_p90": "number",
+    "client_update_direction_dispersion": "number",
+    "online_roster_overlap": "number",
+    "client_score_exceedance_fraction": "number",
+    "client_score_exceedance_overlap": "number",
+    "client_update_group_separation": "number",
+    "client_loss_mean_delta": "number",
+    "client_utilities": "array",
+    "select_k": "integer",
+    "select_enabled": "boolean",
+    "select_seed": "integer",
+    "oort_exploration": "number",
+    "oort_round_threshold": "number",
+    "oort_prefer_duration": "number",
+    "oort_sample_window": "integer"
+  },
+  "hidden_event_schema": {
+    "active_causes": "array",
+    "composition_seed": "integer",
+    "affected_clients": "object",
+    "cause_intervals": "object",
+    "canonical_bundle": "array",
+    "feasible_action_sets": "object",
+    "event_schedule": "array"
+  },
+  "calibration": {
+    "seeds": [
+      101,
+      202,
+      303
+    ],
+    "causes": [
+      "real_drift",
+      "virtual_drift",
+      "label_prior_drift",
+      "fault",
+      "dropout",
+      "partial_participation_hetero",
+      "staggered_concepts"
+    ],
+    "actions": [
+      "no_op",
+      "drift_adapt",
+      "moment_align_adapt",
+      "label_prior_adapt",
+      "robust",
+      "dropout_handle",
+      "friend_substitute",
+      "select_clients",
+      "spawn_concept_auto"
+    ],
+    "primary_utility": "post_event_mean_accuracy",
+    "secondary_utilities": {
+      "virtual_drift": "post_event_worst_class_accuracy",
+      "label_prior_drift": "post_event_worst_class_accuracy"
+    },
+    "epsilon": 0.01,
+    "missed_cause_penalty": 0.5,
+    "uninformative_penalty": 0.5,
+    "wrong_action_penalty_floor": 0.25,
+    "wrong_action_penalty_ceiling": 1.0,
+    "grid_size": 189,
+    "raw_output": "atomic_action_calibration_raw.csv",
+    "matrix_output": "atomic_action_damage_matrix.json"
+  },
+  "integrity": {
+    "canonicalization": "UTF-8 JSON; sort_keys=true; separators=(',', ':'); ensure_ascii=false; omit integrity.manifest_sha256",
+    "manifest_sha256": "af5afd16150f4378edeace0ad00151904c7fb8c6d15e8bcebb9ee9a8e3eb540d"
+  }
+}

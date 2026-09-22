@@ -1,0 +1,13 @@
+scenario,agent,complete,ever,teh_at_5,teh_at_10,ended_correct,phr,t_and_e_at_10,frd,exact,oi,sfi
+single_cause,Random bundle,100.0,19.0,0.0,4.8,14.3,76.7,4.8,26,5.0,7.2,7.5
+single_cause,Composite Rule,100.0,100.0,100.0,100.0,100.0,100.0,100.0,NR,97.9,0.0,0.0
+single_cause,Qwen low,100.0,81.0,66.7,71.4,42.9,63.1,38.1,9,41.4,45.5,0.0
+single_cause,GLM low,100.0,85.7,61.9,66.7,33.3,41.6,23.8,4,26.7,59.2,0.0
+single_cause,DeepSeek low,100.0,76.2,47.6,57.1,28.6,41.6,19.0,2,23.5,58.5,0.0
+two_cause,Random bundle,88.9,0.0,0.0,0.0,0.0,n/a,0.0,n/a,0.0,7.2,6.3
+two_cause,Composite Rule,100.0,100.0,88.9,100.0,100.0,100.0,100.0,NR,96.6,0.0,0.0
+two_cause,Qwen none,96.3,25.9,22.2,22.2,18.5,95.0,14.8,NR,21.6,56.4,0.1
+two_cause,Qwen low,92.6,55.6,22.2,33.3,25.9,54.0,18.5,3,24.6,53.7,12.4
+two_cause,Qwen xhigh,92.6,40.7,18.5,18.5,33.3,77.0,14.8,NR,20.2,57.5,4.1
+two_cause,GLM low,92.6,63.0,44.4,51.9,7.4,39.4,3.7,2,21.8,60.4,13.8
+two_cause,DeepSeek low,100.0,66.7,51.9,55.6,14.8,24.1,7.4,1,12.6,77.5,26.5

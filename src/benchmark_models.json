@@ -1,0 +1,49 @@
+{
+  "models": [
+    {
+      "name": "qwen3p8_max",
+      "kind": "closed",
+      "model": "qwen3.8-max",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_env": "DASHSCOPE_API_KEY",
+      "requires_api_key": true,
+      "temperature": 0.0,
+      "input_cost_per_million": null,
+      "output_cost_per_million": null
+    },
+    {
+      "name": "qwen3p8_flash",
+      "kind": "closed",
+      "model": "qwen3.8-flash",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_env": "DASHSCOPE_API_KEY",
+      "requires_api_key": true,
+      "temperature": 0.0,
+      "reasoning_effort": "none",
+      "input_cost_per_million": null,
+      "output_cost_per_million": null
+    },
+    {
+      "name": "kimi_k3",
+      "kind": "closed",
+      "model": "kimi-k3",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_env": "DASHSCOPE_API_KEY",
+      "requires_api_key": true,
+      "temperature": 1.0,
+      "input_cost_per_million": null,
+      "output_cost_per_million": null
+    },
+    {
+      "name": "deepseek_v4_pro_0813",
+      "kind": "closed",
+      "model": "deepseek-v4-pro-0813",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_env": "DASHSCOPE_API_KEY",
+      "requires_api_key": true,
+      "temperature": 0.0,
+      "input_cost_per_million": null,
+      "output_cost_per_million": null
+    }
+  ]
+}

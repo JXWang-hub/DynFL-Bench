@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "source_archive_verified": true,
+  "generated_files_verified": true,
+  "assertions": {
+    "summary_has_12_rows": true,
+    "single_random_matches_paper": true,
+    "two_cause_random_oi_uses_observed_denominator": true,
+    "two_cause_qwen_low_matches_paper": true,
+    "episode_counts_match_protocol": true
+  },
+  "counts": {
+    "core_single_episode_rows": 105,
+    "core_two_cause_episode_rows": 189,
+    "temporal_metric_rows": 90,
+    "observation_ablation_rows": 44,
+    "speech_metric_rows": 8,
+    "mechanism_validation_rows": 21
+  }
+}

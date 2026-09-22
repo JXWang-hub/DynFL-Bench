@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "release_state": "public_release",
+  "paper_version": "ICASSP 2027 manuscript revision dated 2026-09-22",
+  "frozen_identifiers": {
+    "main_manifest_sha256": "af5afd16150f4378edeace0ad00151904c7fb8c6d15e8bcebb9ee9a8e3eb540d",
+    "atomic_addendum_manifest_sha256": "c1210bb72c632e08764a96d310d1aadf44ed3ee7f5417931db77a97433f4da9d",
+    "prompt_sha256": "01779b937baf079ebc7b9c37a757e70bc0f40f83e784170b15850fa54f5ae291",
+    "evaluation_seeds": [
+      0,
+      44,
+      56
+    ],
+    "lifecycle_runner_commit": "3a6a7532f2dfea64fd164716cc3c34c9c7e83318",
+    "single_random_runner_commit": "ad9efca24ba29b243f6516db9225af6657d76843"
+  },
+  "paper_to_artifact": {
+    "core_result_table": [
+      "summary.csv",
+      "core_episode_results.csv"
+    ],
+    "temporal_protocol_claims": [
+      "temporal_results.csv"
+    ],
+    "observation_ablation_table_and_g5_retention": [
+      "observation_ablation.csv"
+    ],
+    "speech_commands_table": [
+      "speech_results.csv"
+    ],
+    "cause_action_mechanism_validation": [
+      "mechanism_validation.csv"
+    ],
+    "trajectory_retention_and_regression": [
+      "core_episode_results.csv"
+    ]
+  },
+  "source_artifacts": {
+    "core_results": [
+      {
+        "id": "archive:single_7/events_consolidated.csv",
+        "sha256": "3d6d80ae47056ec8d0d25de69c2962c03c3d4d540db4402df352d1b152c6864c",
+        "bytes": 10630
+      },
+      {
+        "id": "archive:single_7/rounds_consolidated.csv",
+        "sha256": "7542ac8709fa80eaebf42f9defeb9539492f178b8970e5dc54e136b5150ea68c",
+        "bytes": 249758
+      },
+      {
+        "id": "archive:single_7/stable_rounds_consolidated.csv",
+        "sha256": "342e3a61847109484e9fbb36377f5919d7f7f0858891a91e7891567d23c3fa19",
+        "bytes": 126480
+      },
+      {
+        "id": "archive:composite_9/events_consolidated.csv",
+        "sha256": "fbb6136093860014ae5ac407097027991eabea6508b81894a2571688e20d765c",
+        "bytes": 19522
+      },
+      {
+        "id": "archive:composite_9/rounds_consolidated.csv",
+        "sha256": "8d40cbc9db89cff786be2e4cbdbf64b0c581bec8fd000c4549e135d6edd36e8c",
+        "bytes": 526215
+      },
+      {
+        "id": "archive:composite_9/stable_rounds_consolidated.csv",
+        "sha256": "fb08f1adf2813bd5ffd9528549faf8f9619e5c792ae31e46225f891e12a0dff3",
+        "bytes": 353895
+      },
+      {
+        "id": "archive:composite_9/post_hit_metrics_by_run.csv",
+        "sha256": "12425ccc10878343b848fcbf2ba5d45085dfe9a335fadb649746f7acd736f192",
+        "bytes": 29064
+      }
+    ],
+    "temporal_results": [
+      {
+        "id": "archive:sequential_injection/metrics_summary.csv",
+        "sha256": "fd6c09e4c4025dd13c9075bee6bb318430a48cc8065396227022961efbd6b23d",
+        "bytes": 575
+      },
+      {
+        "id": "archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv",
+        "sha256": "5b1dc5fba3a3a3ca9b48782c489681f582bbee7ef8e67ca450cc909ad9713b51",
+        "bytes": 1947
+      },
+      {
+        "id": "archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_3cause_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv",
+        "sha256": "11692ec686b07f02bfdd09db5139cfd89da1e195fb3006bbc22e03f716c84dd3",
+        "bytes": 371119
+      },
+      {
+        "id": "archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/agent_decision_summary.csv",
+        "sha256": "5f221fac45d122a081ddd5a4ccedc6739c443b820a5c06335caf9ad1c93cdb6a",
+        "bytes": 1826
+      },
+      {
+        "id": "archive:lifecycle_120/b3_composite_v2/noniid/lifecycle_recurrence_qwen_low_t06/private/agent_decision_audit/event_decision_audit.csv",
+        "sha256": "aff1647d6ff61a842a70f73491add1b6d8bebf38afc67065bc1e5adb76597c86",
+        "bytes": 85950
+      },
+      {
+        "id": "archive:phase6_rotation/agent_decision_summary.csv",
+        "sha256": "23e706059c85a4661e36827f6089635a19d629bcd1b01f2c5b7880c77ef0460c",
+        "bytes": 1825
+      }
+    ],
+    "observation_ablation": [
+      {
+        "id": "archive:single_7/metrics_by_case_agent.csv",
+        "sha256": "22211344acf8de213930e21b18adc2cdcf80e4cce9226747e12cc871604df4ce",
+        "bytes": 5270
+      },
+      {
+        "id": "archive:g5_retention/summary.csv",
+        "sha256": "f42286668fdce5e837de4b72223dec26c3e2ef08e2576e18df705753f4f5847d",
+        "bytes": 716
+      },
+      {
+        "id": "archive:observation_ablation/g1_qwen/per_case.csv",
+        "sha256": "1e8e09f160987311c2ca42de667b19ba901891f58e5357fcb77f1771f3a3241d",
+        "bytes": 336
+      },
+      {
+        "id": "archive:observation_ablation/g1_rule/per_case.csv",
+        "sha256": "29ccfc99ff1e5f5c527e8754c601dbfa976733a65caf5e0b0a28a193cb957503",
+        "bytes": 309
+      },
+      {
+        "id": "archive:observation_ablation/g2_qwen_fault/per_case.csv",
+        "sha256": "ad4b9a22e77c295960081efae145323bce83f506851aa437ebe11dc2185a6dda",
+        "bytes": 427
+      },
+      {
+        "id": "archive:observation_ablation/g2_qwen_staggered/per_case.csv",
+        "sha256": "4ae6f616a8c64907ce2dda6dced693e5ea6e2bb2246aaecac80a37a91d1c5831",
+        "bytes": 415
+      },
+      {
+        "id": "archive:observation_ablation/g2_rule_fault/per_case.csv",
+        "sha256": "7e49b669be41510b5bb8c401b9ca60233d85bc8a83641e7607547f26cbcca46f",
+        "bytes": 415
+      },
+      {
+        "id": "archive:observation_ablation/g2_rule_staggered/per_case.csv",
+        "sha256": "55834e587516ef9ed05a3f28c4decc82f81a3c36104aff5856faa4f200b5f2b2",
+        "bytes": 397
+      },
+      {
+        "id": "archive:observation_ablation/g3_qwen/per_case.csv",
+        "sha256": "98946141632bdf24f5b25f37ae9c3b652ad44351dc88019e6c64a1b94530c809",
+        "bytes": 333
+      },
+      {
+        "id": "archive:observation_ablation/g3_rule/per_case.csv",
+        "sha256": "be26df6aed9f27e1e97949f252034469d47d51eaf8c6b2ba1f6e25cacf69d73b",
+        "bytes": 316
+      },
+      {
+        "id": "archive:observation_ablation/g4_qwen/per_case.csv",
+        "sha256": "0e404ed4da3739cce16cd1e84268dc25e925a7b5de1b483bb4bdcb5318d2f572",
+        "bytes": 327
+      },
+      {
+        "id": "archive:observation_ablation/g4_rule/per_case.csv",
+        "sha256": "ded16a425b27db3540ffd899e1c1750ab4be30fc44682a10393f4aac00bb9708",
+        "bytes": 317
+      }
+    ],
+    "speech_results": [
+      {
+        "id": "archive:supplemental/speech_commands/dropout_random/decision_trace.csv",
+        "sha256": "27ecc190473c264bab4ef8e8103e553362cc126b4d7dd17830ab563798562e0c",
+        "bytes": 81442
+      },
+      {
+        "id": "archive:supplemental/speech_commands/virtual_drift/decision_trace.csv",
+        "sha256": "a88fd7028f2ae2d986bd3f79d0c0c3bdfa8df1166b8f5c4e1b62ed2828dae7cf",
+        "bytes": 82526
+      },
+      {
+        "id": "archive:supplemental/speech_commands/virtual_drift/metrics_all_multiseed.csv",
+        "sha256": "0c541ea41f8feddc0c7c92550de7819a076d8de3fd09761de68b550e9b18ac93",
+        "bytes": 2669
+      }
+    ],
+    "mechanism_validation": [
+      {
+        "id": "archive:offline_figures/action_mechanism.csv",
+        "sha256": "acea2797ce91daf3ae3bf7660bb54ee42bae5063257a6cf286336741f6f8a41f",
+        "bytes": 2519
+      }
+    ]
+  },
+  "data_classification": {
+    "core_and_temporal": "real CIFAR-10 runs plus frozen API decisions",
+    "speech": "real Speech Commands runs plus frozen API decisions",
+    "mechanism_validation": "calibration-seed intervention comparisons",
+    "api_policy": "frozen outputs reused; raw request/response payloads excluded"
+  },
+  "metric_denominators": {
+    "exact": "all planned event decision slots; slots lost to terminal failure count as incorrect",
+    "over_intervention": "observed scorable event decisions",
+    "stable_false_intervention": "observed stable-period decisions",
+    "post_hit_retention": "macro-average over intervals that reach an exact decision"
+  },
+  "export_counts": {
+    "core_single_episode_rows": 105,
+    "core_two_cause_episode_rows": 189,
+    "temporal_metric_rows": 90,
+    "observation_ablation_rows": 44,
+    "speech_metric_rows": 8,
+    "mechanism_validation_rows": 21
+  },
+  "excluded": [
+    "datasets",
+    "model checkpoints",
+    "raw API payloads",
+    "credentials",
+    "absolute paths",
+    "private hostnames",
+    "temporary and superseded runs"
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "redacted_from_sha256": "c67f78251127f8ad3d7779b440589fab2989e8a684f5084cc91897c07691af8b",
+  "freeze_id": "b1b2-c06f9ad-benchmark-cifar10-v2",
+  "status": "frozen",
+  "frozen_on": "2026-07-16",
+  "scope": "B1 and B2 merged single-cause baseline",
+  "source": {
+    "repository": "${REPOSITORY_ROOT}",
+    "results": "results/benchmark_cifar10_v2/b1_final",
+    "run_created_utc": "2026-07-11T13:31:57.957357+00:00",
+    "command": [
+      "${PYTHON}",
+      "${REPOSITORY_ROOT}/multi_seed.py",
+      "--seeds",
+      "0",
+      "44",
+      "56",
+      "--formal_evidence",
+      "--b1_full",
+      "--out_dir",
+      "results/benchmark_cifar10_v2/b1_final"
+    ]
+  },
+  "integrity": {
+    "git_sha": "c06f9ad3b63db77d481b4050a7acf14332a494c2",
+    "run_git_dirty": true,
+    "run_git_status": [
+      "?? 0results/",
+      "?? benchmark_models.json",
+      "?? test.py"
+    ],
+    "run_tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tracked_inputs": {
+      "benchmark_manifest.json": "5212a4cc21f2e2353f21acb7ff4042e258c0875c15bf47f55a045544f201297a",
+      "evidence.py": "bf4ba79231c851d76d48fca6600ab9e7fa092de779c1160e0c955f2beb8328ae",
+      "config.py": "fd1551ae46effff84c8527a4d9e738ee0a80c5f8a22f4453f85d2ad1896f858f"
+    },
+    "audit_note": "The run recorded only untracked files and an empty tracked diff. Tracked-input hashes are bound post-run from the identical git SHA, so no baseline rerun is required."
+  },
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+    "torch": "2.12.1+cu130",
+    "cuda_available": true,
+    "cuda_runtime": "13.0",
+    "cudnn": 92000,
+    "gpu": "NVIDIA GeForce RTX 5090"
+  },
+  "protocol": {
+    "dataset": "cifar10",
+    "seeds": [0, 44, 56],
+    "rounds": 80,
+    "event_round": 40,
+    "num_clients": 20,
+    "samples_per_client": 800,
+    "test_size": 2000,
+    "local_epochs": 2,
+    "batch_size": 32,
+    "lr0": 0.05,
+    "lr_decay": 0.97,
+    "lr_floor": 0.005,
+    "dirichlet_beta": 0.3,
+    "scenario_workpoints": {
+      "real_drift": {
+        "drift_type": "real",
+        "drift_mode": "sudden",
+        "drift_fraction": 1.0
+      },
+      "virtual_drift": {
+        "drift_type": "virtual",
+        "virtual_shift": 2.0
+      },
+      "label_prior_drift": {
+        "drift_type": "label",
+        "label_imbalance_factor": 20.0,
+        "label_min_per_class": 2,
+        "label_prior_strength": 0.1
+      },
+      "fault": {
+        "byzantine_frac": 0.2,
+        "byzantine_scale": 1.5,
+        "robust_trim": 0.2,
+        "robust_variant": "distance_trimmed_mean"
+      },
+      "dropout": {
+        "dropout_mode": "correlated",
+        "dropout_beta": 0.05,
+        "dropout_rate": 0.5,
+        "dropout_recover_round": 0
+      },
+      "partial_participation_hetero": {
+        "hetero_beta": 0.01,
+        "local_epochs": 15,
+        "participation": 0.4
+      },
+      "staggered_concepts": {
+        "n_concepts": 2,
+        "stagger_gap": 20,
+        "feddrift_warmup_rounds": 5,
+        "feddrift_mark_rounds": 2,
+        "feddrift_eval_samples": 128
+      }
+    }
+  },
+  "action_registry": {
+    "stable": {
+      "feasible_actions": ["no_op"],
+      "canonical_action": "no_op",
+      "evidence": {"no_op": "baseline_only"}
+    },
+    "real_drift": {
+      "feasible_actions": ["drift_adapt"],
+      "canonical_action": "drift_adapt",
+      "evidence": {"drift_adapt": "supported"}
+    },
+    "virtual_drift": {
+      "feasible_actions": ["moment_align_adapt"],
+      "canonical_action": "moment_align_adapt",
+      "evidence": {"moment_align_adapt": "supported"}
+    },
+    "label_prior_drift": {
+      "feasible_actions": ["label_prior_adapt"],
+      "canonical_action": "label_prior_adapt",
+      "evidence": {"label_prior_adapt": "supported"}
+    },
+    "fault": {
+      "feasible_actions": ["robust"],
+      "canonical_action": "robust",
+      "evidence": {"robust": "supported"}
+    },
+    "dropout": {
+      "feasible_actions": ["dropout_handle", "friend_substitute"],
+      "canonical_action": "dropout_handle",
+      "evidence": {
+        "dropout_handle": "supported",
+        "friend_substitute": "proxy"
+      }
+    },
+    "partial_participation_hetero": {
+      "feasible_actions": ["select_clients"],
+      "canonical_action": "select_clients",
+      "evidence": {"select_clients": "supported"}
+    },
+    "staggered_concepts": {
+      "feasible_actions": ["spawn_concept_auto"],
+      "canonical_action": "spawn_concept_auto",
+      "evidence": {"spawn_concept_auto": "supported"}
+    },
+    "recurrent_drift": {
+      "feasible_actions": [],
+      "canonical_action": null,
+      "status": "hard_case_until_reuse_concept_model_exists"
+    }
+  },
+  "acceptance": {
+    "source_report": "results/benchmark_cifar10_v2/b1_final/b1_acceptance_report.csv",
+    "all_mechanisms_ok": true,
+    "all_oracles_consistent": true,
+    "cases": {
+      "drift_real": {"status": "strong", "gap": 0.0271},
+      "drift_virtual": {"status": "strong", "gap": 0.0221},
+      "drift_label": {"status": "conditional", "gap": 0.0132},
+      "fault": {"status": "conditional", "gap": 0.0154},
+      "dropout": {"status": "strong", "gap": 0.0345},
+      "hetero": {"status": "conditional", "gap": 0.018},
+      "staggered": {"status": "strong", "gap": 0.0482}
+    }
+  },
+  "phase0_exit": {
+    "b1_b2_merged": true,
+    "baseline_accepted": true,
+    "phase1_ready": true,
+    "notes": [
+      "Real-model performance does not redefine causal truth or feasible action sets.",
+      "friend_substitute remains proxy evidence in B3 even though it is causally feasible for dropout.",
+      "Any later change to a frozen tracked input requires a new freeze id and affected baseline regression."
+    ]
+  }
+}
